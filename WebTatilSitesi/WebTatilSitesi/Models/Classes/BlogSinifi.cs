@@ -2,7 +2,7 @@
 
 namespace WebTatilSitesi.Models.Classes
 {
-	public class BlogSinif
+	public class BlogSinifi
 	{
 		[Key]
 		public int ID { get; set; }
@@ -10,6 +10,7 @@ namespace WebTatilSitesi.Models.Classes
 		public string? Aciklama { get; set; }
 		public string? BlogGorsel { get; set; }
 		public DateTime Tarih { get; set; }
+		public ICollection<YorumSinifi>? Yorums { get; set;}
 
 	}
 }

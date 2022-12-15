@@ -2,7 +2,7 @@
 
 namespace WebTatilSitesi.Models.Classes
 {
-	public class HakkimizdaSinif
+	public class HakkimizdaSinifi
 	{
 		[Key]
 		public int ID { get; set; }
