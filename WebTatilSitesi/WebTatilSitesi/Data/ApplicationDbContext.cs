@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebTatilSitesi.Models.Classes;
 
 namespace WebTatilSitesi.Data
 {
@@ -9,5 +10,7 @@ namespace WebTatilSitesi.Data
             : base(options)
         {
         }
+
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace WebTatilSitesi.Models.Classes
@@ -7,6 +8,7 @@ namespace WebTatilSitesi.Models.Classes
 	{
 		public DbSet<AdminSinifi> AdminSinifis { get; set; }
 		public DbSet<AdresSinifi> AdresSinifis { get; set; }
+		public DbSet<AnaSayfa> AnaSayfas { get; set; }
 		public DbSet<BlogSinifi> BlogSinifis { get; set; }
 		public DbSet<HakkimizdaSinifi> HakkimizdaSinifis { get; set; }
 		public DbSet<Iletisim> Iletisims { get; set; }
