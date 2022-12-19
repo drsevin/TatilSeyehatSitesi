@@ -1,0 +1,22 @@
+﻿@using WebTatilSitesi.Models.Classes
+@model List<HakkimizdaSinifi>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+<div class="content">
+	<div class="wrap">
+		<div class="about">
+			<h3>Hakkımızda</h3>
+			
+			@foreach (var x in Model)
+			{
+				<img src="@x.GorselUrl" alt="" />
+				<p>@x.Aciklama</p>
+			}
+			
+		</div>
+	</div>
+</div>
+

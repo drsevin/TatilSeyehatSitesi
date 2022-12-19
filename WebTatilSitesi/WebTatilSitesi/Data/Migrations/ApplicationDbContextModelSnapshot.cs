@@ -74,6 +74,71 @@ namespace WebTatilSitesi.Data.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -159,271 +224,6 @@ namespace WebTatilSitesi.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.AdminSinifi", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("ContextSinifiId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Kullanici")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sifre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ContextSinifiId");
-
-                    b.ToTable("AdminSinifi");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.AdresSinifi", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("Aciklama")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AdresAcik")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AnaBaslik")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContextSinifiId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Konum")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TelNum")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ContextSinifiId");
-
-                    b.ToTable("AdresSinifi");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.AnaSayfa", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("Aciklama")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AnaBaslik")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContextSinifiId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ContextSinifiId");
-
-                    b.ToTable("AnaSayfa");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.BlogSinifi", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("Aciklama")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AnaBaslik")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BlogGorsel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContextSinifiId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("Tarih")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ContextSinifiId");
-
-                    b.ToTable("BlogSinifi");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.ContextSinifi", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.HakkimizdaSinifi", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("Aciklama")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContextSinifiId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("GorselUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ContextSinifiId");
-
-                    b.ToTable("HakkimizdaSinifi");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.Iletisim", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("AdiSoyadi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContextSinifiId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Konu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mesaj")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ContextSinifiId");
-
-                    b.ToTable("Iletisim");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.YorumSinifi", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<int?>("BlogID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ContextSinifiId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("KullaniciAdi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Yorum")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("BlogID");
-
-                    b.HasIndex("ContextSinifiId");
-
-                    b.ToTable("YorumSinifi");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -435,7 +235,7 @@ namespace WebTatilSitesi.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -444,7 +244,7 @@ namespace WebTatilSitesi.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -459,7 +259,7 @@ namespace WebTatilSitesi.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -468,88 +268,11 @@ namespace WebTatilSitesi.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.AdminSinifi", b =>
-                {
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
-                        .WithMany("AdminSinifis")
-                        .HasForeignKey("ContextSinifiId");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.AdresSinifi", b =>
-                {
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
-                        .WithMany("AdresSinifis")
-                        .HasForeignKey("ContextSinifiId");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.AnaSayfa", b =>
-                {
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
-                        .WithMany("AnaSayfas")
-                        .HasForeignKey("ContextSinifiId");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.BlogSinifi", b =>
-                {
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
-                        .WithMany("BlogSinifis")
-                        .HasForeignKey("ContextSinifiId");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.HakkimizdaSinifi", b =>
-                {
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
-                        .WithMany("HakkimizdaSinifis")
-                        .HasForeignKey("ContextSinifiId");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.Iletisim", b =>
-                {
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
-                        .WithMany("Iletisims")
-                        .HasForeignKey("ContextSinifiId");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.YorumSinifi", b =>
-                {
-                    b.HasOne("WebTatilSitesi.Models.Classes.BlogSinifi", "Blog")
-                        .WithMany("Yorums")
-                        .HasForeignKey("BlogID");
-
-                    b.HasOne("WebTatilSitesi.Models.Classes.ContextSinifi", null)
-                        .WithMany("YorumSinifis")
-                        .HasForeignKey("ContextSinifiId");
-
-                    b.Navigation("Blog");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.BlogSinifi", b =>
-                {
-                    b.Navigation("Yorums");
-                });
-
-            modelBuilder.Entity("WebTatilSitesi.Models.Classes.ContextSinifi", b =>
-                {
-                    b.Navigation("AdminSinifis");
-
-                    b.Navigation("AdresSinifis");
-
-                    b.Navigation("AnaSayfas");
-
-                    b.Navigation("BlogSinifis");
-
-                    b.Navigation("HakkimizdaSinifis");
-
-                    b.Navigation("Iletisims");
-
-                    b.Navigation("YorumSinifis");
                 });
 #pragma warning restore 612, 618
         }

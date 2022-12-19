@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebTatilSitesi.Models.Classes
 {
-	public class ContextSinifi: DbContext
+	public class TatilDbContext: DbContext
 	{
 		public DbSet<AdminSinifi> AdminSinifis { get; set; }
 		public DbSet<AdresSinifi> AdresSinifis { get; set; }
@@ -13,5 +13,12 @@ namespace WebTatilSitesi.Models.Classes
 		public DbSet<HakkimizdaSinifi> HakkimizdaSinifis { get; set; }
 		public DbSet<Iletisim> Iletisims { get; set; }
 		public DbSet<YorumSinifi> YorumSinifis { get; set; }
-	}
+
+        protected override void OnConfiguring(DbContextOptionsBuilder
+            optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;
+           Database=TatilSitesiDb;Trusted_Connection=True;");
+        }
+    }
 }
