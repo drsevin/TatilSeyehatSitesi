@@ -13,7 +13,8 @@ namespace WebTatilSitesi.Controllers
 		}
 		public IActionResult BlogDetayi(int id)
 		{
-			return View();	
+			var blogara = cnt.BlogSinifis.Where(x => x.ID== id).ToList();
+			return View(blogara);	
 		}
 	}
 }

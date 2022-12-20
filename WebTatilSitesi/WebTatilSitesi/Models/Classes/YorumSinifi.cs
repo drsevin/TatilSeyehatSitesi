@@ -9,7 +9,8 @@ namespace WebTatilSitesi.Models.Classes
 		public string? KullaniciAdi { get; set; }
 		public string? Mail { get; set; }
 		public string? Yorum { get; set; }
-		public BlogSinifi? Blog { get; set; }
+		public int Blogid { get; set; }
+		public virtual BlogSinifi? Blog { get; set; }
 
 	}
 }
