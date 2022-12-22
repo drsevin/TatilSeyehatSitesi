@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebTatilSitesi.Models.Classes;
 
@@ -11,9 +12,11 @@ using WebTatilSitesi.Models.Classes;
 namespace WebTatilSitesi.Migrations
 {
     [DbContext(typeof(TatilDbContext))]
-    partial class TatilDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221222192943_GuncelMig")]
+    partial class GuncelMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

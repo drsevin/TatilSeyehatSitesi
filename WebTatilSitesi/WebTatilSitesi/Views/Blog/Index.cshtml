@@ -1,5 +1,4 @@
-﻿@using WebTatilSitesi.Models.Classes
-@model List<BlogSinifi>
+﻿@model WebTatilSitesi.Models.Classes.BlogYorumlari
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AnaLayout.cshtml";
@@ -39,7 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="col-md-8 single-main">
 				
-				@foreach (var x in Model)
+				@foreach (var x in Model.blogSinifis)
 				{
 					<div class="single-grid">
 						<img src="@x.BlogGorsel" alt="" style="margin-bottom:20px"/>
@@ -57,12 +56,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="col-md-4 side-content">
 				<div class="recent">
 					<h3>SON BLOGLAR</h3>
-					<ul>
-						<li><a href="#">Aliquam tincidunt mauris</a></li>
-						<li><a href="#">Vestibulum auctor dapibus  lipsum</a></li>
-						<li><a href="#">Nunc dignissim risus consecu</a></li>
-						<li><a href="#">Cras ornare tristiqu</a></li>
-					</ul>
+					@foreach(var y in Model.blogSinifis2)
+					{
+						<ul>
+							<li><a href="/BlogSinifi/BlogDetayi/@y.ID">@y.AnaBaslik</a></li>
+						</ul>
+					}
+					
 				</div>
 				<div class="comments">
 					<h3>SON YORUMLAR</h3>

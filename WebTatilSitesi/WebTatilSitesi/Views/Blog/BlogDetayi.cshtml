@@ -1,5 +1,4 @@
-﻿@using WebTatilSitesi.Models.Classes
-@model List<BlogSinifi>
+﻿@model WebTatilSitesi.Models.Classes.BlogYorumlari
 @{
     ViewData["Title"] = "BlogDetayi";
     Layout = "~/Views/Shared/_AnaLayout.cshtml";
@@ -41,7 +40,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="col-md-8 single-main">
 				<div class="single-grid">
-					@foreach(var x in Model)
+					@foreach(var x in Model.blogSinifis)
 					{
 						<img src="@x.BlogGorsel" alt="" style="margin-bottom:20px"/>
                         <h2>@x.AnaBaslik</h2>
@@ -52,24 +51,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					}
 					
 				</div>
-				<ul class="comment-list">
-					<li>
-						<img src="~/web2/images/avatar.png" class="img-responsive" alt="">
-						<div class="desc">
-							<p>Şevin Sena Dere : yorum yazacak.. </p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-				</ul>
-				<ul class="comment-list">
-					<li>
-						<img src="~/web2/images/avatar.png" class="img-responsive" alt="">
-						<div class="desc">
-							<p>Şevin Sena Dere : yorum yazacak.. </p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-				</ul>
+				@foreach(var y in Model.yorumSinifis)
+				{
+					<ul class="comment-list">
+						<li>
+							<img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+							<div class="desc">
+								<p>@y.KullaniciAdi : @y.Yorum </p>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					</ul>
+				}
+				
 				<div class="content-form">
 					<h3>Bir Yorum Bırakın</h3>
 					<form>
