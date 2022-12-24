@@ -1,0 +1,22 @@
+﻿@using WebTatilSitesi.Models.Classes 
+@model List<BlogSinifi>
+@foreach(var x in Model)
+{
+	<div class="right">
+			<div class="bot-left">
+				<img src="@x.BlogGorsel" alt="" />
+			</div>
+			<div class="left-text">
+
+				<h4>@x.AnaBaslik</h4>
+				<span class="doller">@x.Tarih</span>
+				<p>Açıklama gelecek</p>
+			<p><a href="/Blog/BlogDetayi/@x.ID"><span class="read">Devamını Oku >></span></a></p>
+			</div>
+	</div>
+}
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+    }
