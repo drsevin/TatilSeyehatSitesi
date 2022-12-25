@@ -1,0 +1,24 @@
+﻿@model WebTatilSitesi.Models.Classes.BlogSinifi
+@{
+    ViewData["Title"] = "YeniBlogEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Yeni Blog Ekle</h3>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.AnaBaslik) @*Html Helper*@
+    @Html.TextBoxFor(x=>x.AnaBaslik, new {@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Tarih)
+    @Html.TextBoxFor(x=>x.Tarih, new {@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.BlogGorsel)
+    @Html.TextBoxFor(x=>x.BlogGorsel, new {@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Aciklama)
+    @Html.TextAreaFor(x=>x.Aciklama,15,1, new {@class = "form-control"})
+    <br />
+    <button class="btn btn-primary">Blog Kaydet</button>
+</form>
+

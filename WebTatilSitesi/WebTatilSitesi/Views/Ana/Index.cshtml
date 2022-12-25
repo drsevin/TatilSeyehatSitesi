@@ -81,15 +81,17 @@
                     <h3>Tatil Seyahat Bloğuma Hoşgeldiniz!</h3>
                     <p>Bu proje şu an devam etmekte. en kısa sürede bitmesi hedeflenmektedir.</p>
                 </div>
-                <partial name="~/Views/Shared/Partial1.cshtml">
+                <partial name="~/Views/Shared/_Partial1.cshtml">
                     @*@Html.Partial("~/Views/Shared/Partial1.cshtml",Model)*@
-                    @*@await Html.PartialAsync("Partial1")*@
+                    @*@await Html.PartialAsync("_Partial1")*@
 
-                    @*@Html.Partial("Partial1","Ana")*@
+                    @*@Html.Partial("_Partial1","Shared")*@
                     <div class="grids">
                         <div class="box1">
-                            <partial name="~/Views/Shared/Partial3.cshtml">
-                                <partial name="~/Views/Shared/Partial4.cshtml">
+                        @*@await Html.PartialAsync("_Partial3")
+                        @await Html.PartialAsync("_Partial4")*@
+                            <partial name="~/Views/Shared/_Partial3.cshtml">
+                                <partial name="~/Views/Shared/_Partial4.cshtml">
 
                                     <div class="clear"></div>
                         </div>

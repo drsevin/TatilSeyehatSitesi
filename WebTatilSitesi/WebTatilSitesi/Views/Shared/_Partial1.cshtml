@@ -16,7 +16,8 @@
 			</div>
 		</div>
 	}
-	<partial name="~/Views/Shared/Partial2.cshtml">
+	@*@await Html.PartialAsync("_Partial2")*@
+	<partial name="~/Views/Shared/_Partial2.cshtml">
 		@*@Html.Partial("~/Views/Shared/Partial2.cshtml",Model)*@
 	@*@await Html.PartialAsync("Partial2")*@
 	@*@Html.Partial("Partial2","Ana")*@
