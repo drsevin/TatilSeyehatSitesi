@@ -1,0 +1,17 @@
+﻿@using WebTatilSitesi.Models.Classes
+@model List<BlogSinifi>
+
+<div class="padding">
+    <h4>En Popüler 10 Blog</h4>
+    <ul class="list list-pad">
+        @{
+            int i = 0;
+        }
+        @foreach (var x in Model)
+        {
+            i++;
+            <li class="list-bg"><span>@i.</span><a href="/Blog/BlogDetayi/@x.ID">@x.AnaBaslik</a></li>
+        }
+    </ul>
+    <a href="/Blog/Index/" class="link1">Tüm Blogları Gör</a>
+</div>
