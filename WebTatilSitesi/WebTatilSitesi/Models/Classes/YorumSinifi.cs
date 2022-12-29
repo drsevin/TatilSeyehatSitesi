@@ -12,5 +12,5 @@ namespace WebTatilSitesi.Models.Classes
 		public int Blogid { get; set; }
 		public virtual BlogSinifi? Blog { get; set; }
 
-	}
+    }
 }

@@ -8,7 +8,7 @@ namespace WebTatilSitesi.Controllers
         public IActionResult Index()
         {
             TatilDbContext cnt = new TatilDbContext();
-            var dgr = cnt.BlogSinifis.Take(8).ToList();
+            var dgr = cnt.BlogSinifis.Take(3).ToList();
             return View(dgr);
         }
         public IActionResult About()

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebTatilSitesi.Models.Classes;
 namespace WebTatilSitesi.Controllers
 {
+    
     public class AdminController : Controller
     {
         TatilDbContext cnt = new TatilDbContext();
@@ -43,6 +45,32 @@ namespace WebTatilSitesi.Controllers
             blg.Tarih = b.Tarih;
             cnt.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public IActionResult YorumListesi()
+        {
+            var yorumlar = cnt.YorumSinifis.Include(x=> x.Blog).ToList();
+            return View(yorumlar);
+        }
+        public IActionResult YorumSil(int id)
+        {
+            var yrm = cnt.YorumSinifis.Find(id);
+            cnt.YorumSinifis.Remove(yrm);
+            cnt.SaveChanges();
+            return RedirectToAction("YorumListesi");
+        }
+        public IActionResult YorumGetir(int id)
+        {
+            var yr2 = cnt.BlogSinifis.Find(id);
+            return View("YorumGetir", yr2);
+        }
+        public IActionResult YorumGuncelle(YorumSinifi y)
+        {
+            var yrm2 = cnt.YorumSinifis.Find(y.ID);
+            yrm2.KullaniciAdi = y.KullaniciAdi;
+            yrm2.Mail = y.Mail;
+            yrm2.Yorum = y.Yorum;
+            cnt.SaveChanges();
+            return RedirectToAction("YorumListesi");
         }
     }
 }
