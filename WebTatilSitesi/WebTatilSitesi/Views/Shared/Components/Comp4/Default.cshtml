@@ -15,5 +15,6 @@
             <div class="clear"></div>
         }
     </div>
-    <partial name="~/Views/Shared/_Partial5.cshtml">
+    @await Component.InvokeAsync("Comp5")
+    @*<partial name="~/Views/Shared/_Partial5.cshtml">*@
 </div>

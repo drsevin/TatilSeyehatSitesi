@@ -1,31 +1,47 @@
-﻿@using WebTatilSitesi.Models.Classes
-@model List<BlogSinifi>
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+﻿@{
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title> Register </title>
+    <link rel="stylesheet" href="~/register/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Kayıt Ol</div>
+        <div class="content">
+            <form action="#">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Ad </span>
+                        <input type="text" placeholder="Adınızı Girin" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Soyad</span>
+                        <input type="text" placeholder="Soyadınızı Girin" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="text" placeholder="Email Girin" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Şifre</span>
+                        <input type="text" placeholder="Şifrenizi Girin" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Şifre Tekrarı</span>
+                        <input type="text" placeholder="Şifrenizi tekrar Girin" required>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Kayıt Ol">
+                </div>
+            </form>
+        </div>
+    </div>
 
-<h1>Blog Listesi</h1>
-<br />
-<table class="table table-bordered">
-    <tr>
-        <th>ID</th>
-        <th>BAŞLIK</th>
-        <th>SİL</th>
-        <th>GÜNCELLE</th>
-        <th>DETAYLAR</th>
-    </tr>
-    @foreach (var x in Model)
-    {
-        <tr>
-            <td>@x.ID</td>
-            <td>@x.AnaBaslik</td>
-            <td><a href="/Admin/BlogSil/@x.ID" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Admin/BlogGetir/@x.ID" class="btn btn-warning">Güncelle</a></td>
-            <td><a href="#" class="btn btn-outline-info">Detaylar</a></td>
-        </tr>
-    }
-
-</table>
-<a href="/Admin/YeniBlogEkle/" class="btn btn-primary">Yeni Blog Ekle</a>
-
+</body>
+</html>

@@ -32,9 +32,13 @@ namespace WebTatilSitesi.Controllers
 		[HttpPost]
 		public IActionResult YorumEkle(YorumSinifi y)
 		{
-			cnt.YorumSinifis.Add(y);
-			cnt.SaveChanges();
-			return RedirectToAction("BlogDetayi");
-		}
+			if(ModelState.IsValid)
+			{
+				cnt.YorumSinifis.Add(y);
+				cnt.SaveChanges();
+				return RedirectToAction("BlogDetayi");
+			}
+            return View("BlogDetayi");
+        }
 	}
 }

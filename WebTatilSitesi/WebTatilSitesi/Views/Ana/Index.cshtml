@@ -60,11 +60,7 @@
                                 @foreach (var x in Model)
                                 {
                                     <li><img src="@x.BlogGorsel" alt=""></li>
-                                    @*<li><img src="~/web/images/img2.jpg" alt=""></li>
-                                <li><img src="~/web/images/img3.jpg" alt=""></li>
-                                <li><img src="~/web/images/img4.jpg" alt=""></li>*@
                                 }
-
                             </ul>
                         </div>
                     </div>
@@ -82,18 +78,10 @@
                     <p>Bu proje şu an devam etmekte. en kısa sürede bitmesi hedeflenmektedir.</p>
                 </div>
                 @await Component.InvokeAsync("Comp1")
-                
-                @*<partial name="~/Views/Shared/_Partial1.cshtml">*@
-                    @*@Html.Partial("~/Views/Shared/Partial1.cshtml",Model)*@
-                    @*@await Html.PartialAsync("_Partial1")*@
-
-                    @*@Html.Partial("_Partial1","Shared")*@
                     <div class="grids">
                         <div class="box1">
-                        @*@await Html.PartialAsync("_Partial3")
-                        @await Html.PartialAsync("_Partial4")*@
-                            <partial name="~/Views/Shared/_Partial3.cshtml">
-                                <partial name="~/Views/Shared/_Partial4.cshtml">
+                            @await Component.InvokeAsync("Comp3")
+                                @await Component.InvokeAsync("Comp4")
 
                                     <div class="clear"></div>
                         </div>

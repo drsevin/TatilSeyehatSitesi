@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using WebTatilSitesi.Models.Classes;
 namespace WebTatilSitesi.Controllers
 {
@@ -7,10 +9,21 @@ namespace WebTatilSitesi.Controllers
     public class AdminController : Controller
     {
         TatilDbContext cnt = new TatilDbContext();
-        public IActionResult Index()
+        public IActionResult Index2()
         {
             var deger = cnt.BlogSinifis.ToList();
             return View(deger);
+        }
+        //[Authorize(Roles = "User")]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin()
+        {
+            return View();
         }
         [HttpGet] //sayfa yüklendiğinde çalışır hiçbir şey yapma sayfanın boş halini döndür
         public IActionResult YeniBlogEkle()
