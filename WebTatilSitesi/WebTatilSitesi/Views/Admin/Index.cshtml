@@ -1,4 +1,9 @@
-﻿@{
+﻿@using WebTatilSitesi.Models
+@model Kayit
+
+
+@{
+    
     Layout = null;
 }
 <!DOCTYPE html>
@@ -13,27 +18,27 @@
     <div class="container">
         <div class="title">Kayıt Ol</div>
         <div class="content">
-            <form action="#">
+            <form asp-action="Index" method="post" asp-controller="Admin">
                 <div class="user-details">
                     <div class="input-box">
-                        <span class="details">Ad </span>
-                        <input type="text" placeholder="Adınızı Girin" required>
+                        <span asp-validation-for="Ad" class="details">Ad </span>
+                        <input asp-for="Ad" type="text" placeholder="Adınızı Girin" required>
                     </div>
                     <div class="input-box">
-                        <span class="details">Soyad</span>
-                        <input type="text" placeholder="Soyadınızı Girin" required>
+                        <span asp-validation-for="Soyad" class="details">Soyad</span>
+                        <input asp-for="Soyad" type="text" placeholder="Soyadınızı Girin" required>
                     </div>
                     <div class="input-box">
-                        <span class="details">Email</span>
-                        <input type="text" placeholder="Email Girin" required>
+                        <span asp-validation-for="Mail" class="details">Email</span>
+                        <input asp-for="Mail" type="email" placeholder="Email Girin" required>
                     </div>
                     <div class="input-box">
-                        <span class="details">Şifre</span>
-                        <input type="text" placeholder="Şifrenizi Girin" required>
+                        <span asp-validation-for="Sifre" class="details">Şifre</span>
+                        <input asp-for="Sifre" type="password" placeholder="Şifrenizi Girin" required>
                     </div>
                     <div class="input-box">
-                        <span class="details">Şifre Tekrarı</span>
-                        <input type="text" placeholder="Şifrenizi tekrar Girin" required>
+                        <span asp-validation-for="SifreTekrar" class="details">Şifre Tekrarı</span>
+                        <input asp-for="SifreTekrar" type="password" placeholder="Şifrenizi tekrar Girin" required>
                     </div>
                 </div>
                 <div class="button">

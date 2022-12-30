@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="~/web/css/style.css" type="text/css" media="all" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,9 +13,9 @@
     <script src="~/web/js/responsiveslides.min.js"></script>
 
     <script>
-        
+
         $(function () {
-            
+
             $("#slider1").responsiveSlides({
                 auto: true,
                 nav: true,
@@ -44,9 +44,21 @@
     <div class="header-bottom">
         <div class="wrap">
             <ul id="nav">
-                <li><a href="/Ana/Index">Ana Sayfa</a></li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Ana" asp-action="Index">Ana sayfa</a>
+                </li>
                 <li><a class="hsubs" href="/About/Index">Hakkımızda</a></li>
-                <li><a class="hsubs" href="/Admin/Index2">Admin</a></li>
+                @if (User.Identity.IsAuthenticated) @*giriş yapıldı mı yapılmadı mı, giriş yapıldığı taktirde bu alan gelir*@
+                {
+                    if (User.IsInRole("Admin")) @*rolü admin mi*@
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index2">Admin</a>
+                        </li>
+                    }
+
+                }
+               @* <li><a class="hsubs" href="/Admin/Index2">Admin</a></li>*@
                 <li><a class="hsubs" href="/Blog/Index/">Blogum</a></li>
                 <li><a href="contact.html">İletişim</a></li>
                 <li><a href="/Admin/Index">Kayıt Ol</a></li>

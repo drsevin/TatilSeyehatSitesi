@@ -5,7 +5,7 @@ using System.Data;
 using WebTatilSitesi.Models.Classes;
 namespace WebTatilSitesi.Controllers
 {
-    
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         TatilDbContext cnt = new TatilDbContext();
@@ -13,17 +13,6 @@ namespace WebTatilSitesi.Controllers
         {
             var deger = cnt.BlogSinifis.ToList();
             return View(deger);
-        }
-        //[Authorize(Roles = "User")]
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "Admin")]
-        public IActionResult Admin()
-        {
-            return View();
         }
         [HttpGet] //sayfa yüklendiğinde çalışır hiçbir şey yapma sayfanın boş halini döndür
         public IActionResult YeniBlogEkle()

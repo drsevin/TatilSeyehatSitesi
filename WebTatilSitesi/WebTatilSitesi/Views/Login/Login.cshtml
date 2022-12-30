@@ -1,8 +1,10 @@
-﻿
-@{
-    Layout = null;
-}
+﻿@using WebTatilSitesi.Models
+@model Giris
 
+@{
+	
+	Layout = null;
+}
 <!DOCTYPE html>
 <html>
 
@@ -25,9 +27,9 @@
 
 		<div class="design-w3l">
 			<div class="mail-form-agile">
-				<form action="#" method="post">
-					<input type="text" name="name" placeholder="Kullanıcı Adınız veya Mail Adresiniz" required="" />
-					<input type="password" name="password" class="padding" placeholder="Şifreniz" required="" />
+				<form asp-action="Login" method="post" asp-controller="Login">
+					<input asp-for="Mail" type="text" name="Mail" placeholder="Mail Adresiniz" required="" />
+					<input asp-for="Sifre" type="password" name="Sifre" class="padding" placeholder="Şifreniz" required="" />
 					<input type="submit" value="Giriş Yap">
 				</form>
 			</div>

@@ -1,20 +1,22 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace WebTatilSitesi.Models
 {
-    public class UserDetail:IdentityUser
+    public class Kayit
     {
-        [Key]
-        public int ID { get; set; }
         [Required]
         public string? Ad { get; set; }
         [Required]
+
         public string? Soyad { get; set; }
+
         [Required]
+
         public string? Mail { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
+
         public string? Sifre { get; set; }
         [Required]
         [DataType(DataType.Password)]
