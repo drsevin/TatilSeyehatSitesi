@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebTatilSitesi.Models
+namespace WebTatilSitesi.Models.Classes
 {
     public class Kayit
     {
+        [Key]
+        public int ID { get; set; }
         [Required]
         public string? Ad { get; set; }
         [Required]

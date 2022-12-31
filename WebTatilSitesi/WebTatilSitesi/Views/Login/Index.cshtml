@@ -1,9 +1,9 @@
-﻿@using WebTatilSitesi.Models
+﻿@using WebTatilSitesi.Models.Classes
 @model Kayit
 
 
 @{
-    
+
     Layout = null;
 }
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="title">Kayıt Ol</div>
         <div class="content">
-            <form asp-action="Index" method="post" asp-controller="Admin">
+            <form asp-action="Index" method="post" asp-controller="Login">
                 <div class="user-details">
                     <div class="input-box">
                         <span asp-validation-for="Ad" class="details">Ad </span>

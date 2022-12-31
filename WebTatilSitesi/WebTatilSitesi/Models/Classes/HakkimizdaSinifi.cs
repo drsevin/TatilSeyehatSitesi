@@ -7,6 +7,9 @@ namespace WebTatilSitesi.Models.Classes
 		[Key]
 		public int ID { get; set; }
 		public string? GorselUrl { get; set; }
-		public string? Aciklama { get; set; }
-	}
+
+        [Display(Name = "Açıklama")]
+        public string? Aciklama { get; set; }
+
+    }
 }

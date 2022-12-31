@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using WebTatilSitesi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,28 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     ));
 
 
+
+builder.Services.AddControllersWithViews()
+                .AddViewLocalization();
+
+builder.Services.AddLocalization(options =>
+{
+    options.ResourcesPath = "Resources";
+});
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new("tr-TR");
+
+    CultureInfo[] cultures = new CultureInfo[]
+    {
+        new("tr-TR"),
+        new("en-US"),
+        new("fr-FR")
+    };
+
+    options.SupportedCultures = cultures;
+    options.SupportedUICultures = cultures;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -46,3 +69,5 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+
+app.UseRequestLocalization();

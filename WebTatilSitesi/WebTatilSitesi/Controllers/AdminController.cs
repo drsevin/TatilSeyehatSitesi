@@ -24,14 +24,14 @@ namespace WebTatilSitesi.Controllers
         {
             cnt.BlogSinifis.Add(blog);
             cnt.SaveChanges(); //dbase de değişiklikleri kaydet
-            return RedirectToAction("Index");
+            return RedirectToAction("Index2");
         }
         public IActionResult BlogSil(int id)
         {
             var bl = cnt.BlogSinifis.Find(id);
             cnt.BlogSinifis.Remove(bl);
             cnt.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index2");
         }
         public IActionResult BlogGetir(int id)
         {
@@ -46,7 +46,7 @@ namespace WebTatilSitesi.Controllers
             blg.BlogGorsel = b.BlogGorsel;
             blg.Tarih = b.Tarih;
             cnt.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index2");
         }
         public IActionResult YorumListesi()
         {

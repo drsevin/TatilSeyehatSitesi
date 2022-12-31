@@ -1,10 +1,44 @@
-﻿@using WebTatilSitesi.Models.Classes
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+@using WebTatilSitesi.Models.Classes
+
+@*@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
+}
+
+<label>Language:</label>
+<select onchange="SetCulture(this.value)" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+</select>*@
+
 @model List<HakkimizdaSinifi>
+
+
+@*<div asp-validation-summary="All" class="text-danger"></div>
+@{
+    string culture = "", uiculture = "";
+    if (Context.Request.QueryString.HasValue)
+    {
+        string url = Context.Request.QueryString.Value;
+        culture = Context.Request.Query["culture"];
+        uiculture = Context.Request.Query["ui-culture"];
+    }
+}*@
+
+
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AnaLayout.cshtml";
 }
-
+<h2>@Localizer["Hakkımızda"]</h2>
 <div class="content">
 	<div class="wrap">
 		<div class="about">
@@ -13,10 +47,18 @@
 			@foreach (var x in Model)
 			{
 				<img src="@x.GorselUrl" alt="" />
-				<p>@x.Aciklama</p>
-			}
+                <p asp-route-culture="@culture" asp-route-ui-culture="@uiculture">@x.Aciklama</p>
+            }
 			
 		</div>
 	</div>
 </div>
 
+<script>
+    function SetCulture(selectedValue) {
+        alert(selectedValue);
+        var url = window.location.href.split('?')[0];
+        var culture = "?culture=" + selectedValue + "&ui-culture=" + selectedValue;
+        window.location.href = url + culture;
+    }
+</script>
