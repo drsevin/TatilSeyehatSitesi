@@ -11,6 +11,7 @@
     <link href="~/web/css/slider.css" rel="stylesheet" type="text/css" media="all" />
     <script src="~/web/js/jquery.min.js"></script>
     <script src="~/web/js/responsiveslides.min.js"></script>
+    <link href="~/web/css/flag.icon.css" />
 
     <script>
 
@@ -72,8 +73,39 @@
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Giriş Yap</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="CallBlogApi" asp-action="Index">Bloglar Api İle Çağırıldı</a>
+                </li>
+
+
             </ul>
+            <div class="nav-wrapper">
+                <div class="sl-nav">
+                    Diller:
+                    <ul>
+                        <li>
+                            <b>Türkçe</b> <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            <div class="triangle"></div>
+                            <ul class="language">
+
+                                <li><a asp-controller="About" asp-action="ChangeLanguage" asp-route-culture="en-US" class="nav-link"><i class="flag-icon flag-icon-gb"></i> English</a></li>
+
+                                <li><a asp-controller="About" asp-action="ChangeLanguage" asp-route-culture="fr-FR" class="nav-link"><i class="flag-icon flag-icon-fr"></i> Français</a></li>
+
+                                <li><a asp-controller="About" asp-action="ChangeLanguage" asp-route-culture="tr-TR" class="nav-link"><i class="flag-icon flag-icon-tr"></i> Türkçe</a></li>
+
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
         </div>
+
+
     </div>
 
     <div class"content">

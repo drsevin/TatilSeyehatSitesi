@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Açıklama" xml:space="preserve">
+  <data name="@x.Aciklama" xml:space="preserve">
     <value>Les vacances ou les loisirs[1] sont un concept qui signifie faire une pause dans le travail, arrêter le travail, commencer une piste; Décapitation, fin. Le concept de vacances aujourd'hui, contrairement aux anciennes périodes, comprend des voyages et des activités de divertissement. De nos jours, les vacances pour les individus ont acquis la stature d'un processus qui se développe dans le sens de divers facteurs dans lesquels les processus rationnels sont évidents.[2] Les vacances font également partie du développement intellectuel aujourd'hui. En fait, dans une étude menée sur les touristes visitant la Grèce et le Maroc, il a été constaté que de sérieux changements sont apparus dans les perspectives des vacanciers envers ce pays après les vacances.[3] Encore une fois, avec la diversification du concept de vacances, le concept de vacances d'activité, qui peut être considéré comme un divertissement actif, a émergé. À tel point que les géographes travaillant sur le tourisme ont révélé qu'à mesure que le nombre d'activités dans les régions augmente, ces régions se développent en termes de densité touristique.[4] Dans le même temps, l'effet périodique est élevé dans les conceptions de vacances. Par exemple, pendant la pandémie de Covid-19, les stratégies de réduction des risques sont devenues une partie importante du secteur du tourisme.[5]</value>
   </data>
-  <data name="Hakkımızda" xml:space="preserve">
-    <value>À propos de nous</value>
+  <data name="hosgeldiniz" xml:space="preserve">
+    <value>Bienvenue sur la page À propos de nous!</value>
   </data>
 </root>

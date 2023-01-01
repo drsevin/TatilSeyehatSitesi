@@ -10,6 +10,7 @@ namespace WebTatilSitesi.Data
             : base(options)
         {
         }
+        public DbSet<WebTatilSitesi.Models.Classes.BlogSinifi> BlogSinifi { get; set; } = default!;
 
         
     }

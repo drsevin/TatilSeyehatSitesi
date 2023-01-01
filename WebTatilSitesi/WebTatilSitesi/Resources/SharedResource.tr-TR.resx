@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Açıklama" xml:space="preserve">
-    <value>Vacation or leisure[1] is a concept that means taking a break from work, stopping work, starting a trail; Decapitation, ending. The concept of vacation today, unlike in the old periods, includes travel and activities for entertainment. Nowadays, vacation for individuals has gained the stature of a process that develops in the direction of various factors in which rational processes are evident.[2] Vacation is also a part of intellectual development today. As a matter of fact, in a study conducted on tourists visiting Greece and Morocco, it was found that serious changes appeared in the perspectives of holidaymakers towards that country after the holidays.[3] Again, with the diversification of the concept of vacation, the concept of activity vacation, which can be considered as active entertainment, has emerged. So much so that geographers working on tourism have revealed that as the number of activities in the regions increases, these regions are developing in terms of tourist density.[4] At the same time, the periodic effect is high in holiday conceptions. For example, during the Covid-19 pandemic, risk reduction strategies have become an important part of the tourism sector.[5]</value>
+  <data name="@x.Aciklama" xml:space="preserve">
+    <value>Tatil ya da dinlence[1], çalışmaya ara vermek, çalışmayı durdurmak, izine başlamak; kesmek, son vermek anlamlarına gelen bir kavramdır. Tatil kavramı bugün eski dönemlerdekinden farklı olarak eğlence için yapılan seyahat ve etkinlikleri de kapsamaktadır. Günümüzde bireyler için tatil rasyonel süreçlerin belirgin olduğu çeşitli faktörler yönünde gelişen bir süreç boyunu kazanmıştır.[2] Tatil günümüzde entelektüel gelişimin de bir parçasıdır. Nitekim Yunanistan ve Fas'ı ziyaret eden turistler üzerinde yapılan bir çalışmada tatil sonrasında tatilcilerin o ülkeye olan bakış açılarında ciddi değişiklikler ortaya çıktığı görülmüştür.[3] Yine tatil kavramının çeşitlenmesiyle ortaya aktif eğlenme olarak değerlendirilebilecek aktivite tatili kavramı çıkmıştır. Öyle ki turizm üzerine çalışan coğrafyacılar, bölgelerdeki aktivite sayısı arttıkça o bölgelerin turist yoğunluğu açısından gelişim gösterdiğini ortaya koymuştur.[4] Aynı zamanda tatil anlayışlarında dönemsel etki yüksektir. Örneğin Covid-19 salgını esnasında risk azaltma stratejileri turizm sektörünün önemli bir parçası hâline gelmiştir.[5]</value>
   </data>
-  <data name="Hakkımızda" xml:space="preserve">
-    <value>About Us</value>
+  <data name="hosgeldiniz" xml:space="preserve">
+    <value>Hakkımızda Sayfasına Hoş Geldiniz!</value>
   </data>
 </root>
