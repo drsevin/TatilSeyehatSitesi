@@ -29,7 +29,7 @@
 <body>
     <div class="header">
         <div class="wrap">
-            <div class="logo"><a href="index.html"><img src="~/web/images/logo.png" alt="" /></a></div>
+            <div class="logo"><a href="index.html"><img src="~/web/images/logo2.jpg" alt="" /></a></div>
             <div class="con-right">
                 <div class="grid1-l-img">
                     <img src="~/web/images/contact.png" alt="">
@@ -51,21 +51,17 @@
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">Hakkımızda</a>
                 </li>
-                @if (User.Identity.IsAuthenticated) @*giriş yapıldı mı yapılmadı mı, giriş yapıldığı taktirde bu alan gelir*@
+                @if (User.Identity.IsAuthenticated)
                 {
-                    if (User.IsInRole("Admin")) @*rolü admin mi*@
+                    if (User.IsInRole("Admin"))
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index2">Admin</a>
                         </li>
                     }
-
                 }
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Blog" asp-action="Index">Blogum</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">İletişim</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Kayıt Ol</a>
@@ -76,8 +72,6 @@
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="CallBlogApi" asp-action="Index">Bloglar Api İle Çağırıldı</a>
                 </li>
-
-
             </ul>
             <div class="nav-wrapper">
                 <div class="sl-nav">
@@ -104,8 +98,6 @@
             </div>
 
         </div>
-
-
     </div>
 
     <div class"content">

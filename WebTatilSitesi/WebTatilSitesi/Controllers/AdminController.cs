@@ -5,10 +5,11 @@ using System.Data;
 using WebTatilSitesi.Models.Classes;
 namespace WebTatilSitesi.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         TatilDbContext cnt = new TatilDbContext();
+        [Authorize(Roles = "Admin")]
         public IActionResult Index2()
         {
             var deger = cnt.BlogSinifis.ToList();
