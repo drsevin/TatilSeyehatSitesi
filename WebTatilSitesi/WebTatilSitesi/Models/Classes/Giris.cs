@@ -13,5 +13,7 @@ namespace WebTatilSitesi.Models.Classes
         [Required]
         [DataType(DataType.Password)]
         public string? Sifre { get; set; }
+       
+        
     }
 }

@@ -1,0 +1,53 @@
+﻿@using WebTatilSitesi.Models
+@model LoginModel
+
+@{
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content=" Master  Login Form Widget Tab Form,Login Forms,Sign up Forms,Registration Forms,News letter Forms,Elements" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="~/weblogin/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="//fonts.googleapis.com/css?family=Cormorant+SC:300,400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Kayıt Ol</div>
+        <div class="content">
+            <form asp-action="Login" method="post" asp-controller="Account">
+                <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl"/>
+                <div asp-validation-summary="All" class="user-details">
+                    
+                    @*<div class="input-box">
+                        <span asp-validation-for="UserName" class="details">User Ad</span>
+                        <input asp-for="UserName" type="text" placeholder="Soyadınızı Girin" required>
+                    </div>*@
+                    <div class="input-box">
+                    <span asp-validation-for="Email" class="details">Email</span>
+                    <input asp-for="Email" type="email" placeholder="Email Girin" required>
+                    </div>
+                    <div class="input-box">
+                        <span asp-validation-for="Password" class="details">Şifre</span>
+                        <input asp-for="Password" type="password" placeholder="Şifrenizi Girin" required>
+                    </div>
+                    
+                </div>
+                <div class="button">
+                    <input type="submit" value="Giriş Yap">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+

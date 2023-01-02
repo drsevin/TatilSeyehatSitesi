@@ -29,10 +29,13 @@
             <div class="mail-form-agile">
                 @using (Html.BeginForm("Login", "Login", FormMethod.Post))
                 {
+
                     <input asp-for="Mail" type="text" name="Mail" placeholder="Mail Adresiniz" required="" />
                     <input asp-for="Sifre" type="password" name="Sifre" class="padding" placeholder="Şifreniz" required="" />
                     <input type="submit" value="Giriş Yap">
+
                 }
+
                 @*<form asp-action="Login" method="post" asp-controller="Login">*@
             </div>
             <div class="clear"> </div>

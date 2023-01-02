@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebTatilSitesi.Models.Classes;
 
@@ -11,9 +12,11 @@ using WebTatilSitesi.Models.Classes;
 namespace WebTatilSitesi.Migrations
 {
     [DbContext(typeof(TatilDbContext))]
-    partial class TatilDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230101202307_YeniMig")]
+    partial class YeniMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,6 +33,12 @@ namespace WebTatilSitesi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
+                    b.Property<int>("Adminid")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GirisiesID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Mail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -39,6 +48,8 @@ namespace WebTatilSitesi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("GirisiesID");
 
                     b.ToTable("AdminSinifis");
                 });
@@ -243,6 +254,15 @@ namespace WebTatilSitesi.Migrations
                     b.ToTable("YorumSinifis");
                 });
 
+            modelBuilder.Entity("WebTatilSitesi.Models.Classes.AdminSinifi", b =>
+                {
+                    b.HasOne("WebTatilSitesi.Models.Classes.Giris", "Girisies")
+                        .WithMany("Admins")
+                        .HasForeignKey("GirisiesID");
+
+                    b.Navigation("Girisies");
+                });
+
             modelBuilder.Entity("WebTatilSitesi.Models.Classes.YorumSinifi", b =>
                 {
                     b.HasOne("WebTatilSitesi.Models.Classes.BlogSinifi", "Blog")
@@ -257,6 +277,11 @@ namespace WebTatilSitesi.Migrations
             modelBuilder.Entity("WebTatilSitesi.Models.Classes.BlogSinifi", b =>
                 {
                     b.Navigation("Yorums");
+                });
+
+            modelBuilder.Entity("WebTatilSitesi.Models.Classes.Giris", b =>
+                {
+                    b.Navigation("Admins");
                 });
 #pragma warning restore 612, 618
         }

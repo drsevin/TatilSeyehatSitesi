@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Localization;
 using System.Reflection;
 using WebTatilSitesi.Models;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using WebTatilSitesi.Areas.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,12 +17,48 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("DefaultConnection")
+    builder.Configuration.GetConnectionString("DefaultConnection")//Data Source = TatilSitesiDb
     ));
+builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    //password
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 3;
+    options.Password.RequireNonAlphanumeric = false;
+
+    //Lockout
+    options.Lockout.MaxFailedAccessAttempts= 5;
+    options.Lockout.DefaultLockoutTimeSpan= TimeSpan.FromMinutes(5);
+    options.Lockout.AllowedForNewUsers= true;
+
+    //options.User.AllowedUserNameCharacters = "";
+    options.User.RequireUniqueEmail = true;
+    options.SignIn.RequireConfirmedEmail = false;
+    options.SignIn.RequireConfirmedPhoneNumber = false;
+
+});
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath= "/Account/Logout";
+    options.AccessDeniedPath= "/Account/AccessDenied";
+    options.SlidingExpiration = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+    options.Cookie = new CookieBuilder
+    {
+        HttpOnly =true,
+        Name = ".TarvelSite.Security.Cookie"
+    };
+});
 
 
 
@@ -108,14 +146,50 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Ana}/{action=Index}/{id?}");
-app.MapRazorPages();
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Ana}/{action=Index}/{id?}");
+//app.MapRazorPages();
+
+app.UseEndpoints(endpoints =>
+{
+
+    endpoints.MapControllerRoute(
+   name: "default",
+   pattern: "{controller=Ana}/{action=Index}/{id?}");
+
+    endpoints.MapControllerRoute(
+      name: "adminroles",
+      pattern: "admin/role/list",
+      defaults: new { Controller = "Admin", Action = "RoleList" }
+   );
+
+    endpoints.MapControllerRoute(
+      name: "adminrolecreate",
+      pattern: "admin/role/create",
+      defaults: new { Controller = "Admin", Action = "RoleCreate" }
+   );
+
+    endpoints.MapControllerRoute(
+      name: "adminroleedit",
+      pattern: "admin/role/{id?}",
+      defaults: new { Controller = "Admin", Action = "RoleEdit" }
+   );
+
+    // endpoints.MapControllerRoute(
+    //   name: "adminyorumlistesi",
+    //   pattern: "admin/yorumlistesi",
+    //   defaults: new { Controller = "Admin", Action = "YorumListesi" }
+    //);
+
+
+});
+
+
 
 app.Run();
 

@@ -1,4 +1,8 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using WebTatilSitesi.Areas.Identity;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@{
     Layout = null;
 }
 <!DOCTYPE HTML>

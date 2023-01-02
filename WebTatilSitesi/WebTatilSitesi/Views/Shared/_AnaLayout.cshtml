@@ -1,4 +1,8 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using WebTatilSitesi.Areas.Identity;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@{
     Layout = null;
 }
 <!DOCTYPE HTML>
@@ -44,7 +48,7 @@
     </div>
     <div class="header-bottom">
         <div class="wrap">
-            <ul id="nav">
+            <ul id="nav" class="navbar-nav mr-aouto">
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Ana" asp-action="Index">Ana sayfa</a>
                 </li>
@@ -59,19 +63,36 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index2">Admin</a>
                         </li>
                     }
+
                 }
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Blog" asp-action="Index">Blogum</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Kayıt Ol</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Giriş Yap</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="CallBlogApi" asp-action="Index">Bloglar Api İle Çağırıldı</a>
                 </li>
+            </ul>
+            <ul id="nav" class="navbar-nav ml-auto">
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Manage">@User.Identity.Name</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+                    </li>
+
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+                    </li>
+                }
             </ul>
             <div class="nav-wrapper">
                 <div class="sl-nav">

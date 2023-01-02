@@ -1,0 +1,54 @@
+﻿@using WebTatilSitesi.Models
+@model RegisterModel
+@{
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title> Register </title>
+    <link rel="stylesheet" href="~/register/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Kayıt Ol</div>
+        <div class="content">
+            <form asp-action="Register" method="post" asp-controller="Account">
+                <div asp-validation-summary="All" class="user-details">
+                    <div class="input-box">
+                        <span asp-validation-for="FirstName" class="details">Ad </span>
+                        <input asp-for="FirstName" type="text" placeholder="Adınızı Girin" required>
+                    </div>
+                    <div class="input-box">
+                        <span asp-validation-for="LastName" class="details">Soyad</span>
+                        <input asp-for="LastName" type="text" placeholder="Soyadınızı Girin" required>
+                    </div>
+                    <div class="input-box">
+                        <span asp-validation-for="UserName" class="details">User Ad</span>
+                        <input asp-for="UserName" type="text" placeholder="Soyadınızı Girin" required>
+                    </div>
+                    <div class="input-box">
+                        <span asp-validation-for="Password" class="details">Şifre</span>
+                        <input asp-for="Password" type="password" placeholder="Şifrenizi Girin" required>
+                    </div>
+                    <div class="input-box">
+                        <span asp-validation-for="RePassword" class="details">Şifre Tekrarı</span>
+                        <input asp-for="RePassword" type="password" placeholder="Şifrenizi tekrar Girin" required>
+                    </div>
+                    <div class="input-box">
+                        <span asp-validation-for="Email" class="details">Email</span>
+                        <input asp-for="Email" type="email" placeholder="Email Girin" required>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Kayıt Ol">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
