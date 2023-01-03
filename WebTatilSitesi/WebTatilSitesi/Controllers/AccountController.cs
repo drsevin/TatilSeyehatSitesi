@@ -20,7 +20,7 @@ namespace WebTatilSitesi.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Login(string ReturnUrl = null)
+        public IActionResult Login(string ReturnUrl)
         {
             return View(new LoginModel()
             {
