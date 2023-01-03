@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using WebTatilSitesi.Areas.Identity;
 using WebTatilSitesi.Models;
 
@@ -32,7 +33,7 @@ namespace WebTatilSitesi.Controllers
         {
             //! olmayınca normal login yapıyo admin girişi yapmıyo
             //! olunca admin girişi yapıyo normal kullanıcı girişi yapmıyo
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }
@@ -78,6 +79,7 @@ namespace WebTatilSitesi.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                
                 //generate token
                 //email
                 return RedirectToAction("Login", "Account");

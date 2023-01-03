@@ -8,6 +8,8 @@ using WebTatilSitesi.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using WebTatilSitesi.Areas.Identity;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,10 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 //    .AddEntityFrameworkStores<ApplicationDbContext>();
+IConfiguration Configuration = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.json")
+                            .Build();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")//Data Source = TatilSitesiDb
@@ -190,6 +196,12 @@ app.UseEndpoints(endpoints =>
 });
 
 
+
+//var userManager = app.Services.GetService<UserManager<User>>();
+
+//var roleManager = app.Services.GetService<RoleManager<IdentityRole>>();
+
+//SeedIdentity.Seed(userManager,roleManager,Configuration).Wait();
 
 app.Run();
 
